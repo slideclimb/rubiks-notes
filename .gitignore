@@ -1,0 +1,12 @@
+## A gitignore for LaTeX projects
+
+*.iml
+.idea/
+auxil/
+out/
+src/*.idx
+src/*.ilg
+src/*.ind
+
+# Minted generated files
+src/_minted-*/*
