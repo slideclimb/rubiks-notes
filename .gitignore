@@ -8,5 +8,11 @@ src/*.idx
 src/*.ilg
 src/*.ind
 
+src/*.aux
+src/*.log
+src/*.pdf
+src/*.synctex.gz
+src/*.dat
+
 # Minted generated files
 src/_minted-*/*
