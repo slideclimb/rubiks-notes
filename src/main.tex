@@ -1,25 +1,23 @@
-%%
-%% Author: s152337
-%% 13-8-2018
-%%
+\documentclass{article}
 
-% Preamble
-\documentclass[11pt]{article}
-
-% Packages
-\usepackage{a4wide}
 \usepackage{tikz}
-%\usepackage{rubikcube, rubikrotation, rubikpatterns, rubiktwocube}
+\usepackage{rubikcube, rubikrotation}
 
-% Document
+\newcommand{\sixspot}{[sixspot],U,Dp,R,Lp,F,Bp,U,Dp}
+
 \begin{document}
 
-%    \begin{figure}[hbt]
-%        \centering%
-%        \RubikCubeSolved%
-%        \ShowCube{7cm}{1}{\DrawRubikCubeRU}
-%    \end{figure}
-    test
-
+    \begin{figure}
+        \centering
+        \RubikCubeSolved
+        \begin{tikzpicture}[scale=0.5]
+            \DrawRubikCubeRU
+        \end{tikzpicture}
+        \RubikRotation{\sixspot}
+        \begin{tikzpicture}[scale=0.5]
+            \DrawRubikCubeRU
+        \end{tikzpicture}
+        \caption{Rubik}
+    \end{figure}
 
 \end{document}
