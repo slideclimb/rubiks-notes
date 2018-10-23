@@ -1,21 +1,16 @@
-language: generic
+sudo:       required
+language:   generic
+services:   docker
 
-# Dependency of the minted package
-before_install:
- - chmod +x ./texlive/texlive_install.sh
- - chmod +x ./texlive/texlive.profile
- - sudo apt-get install python-pygments
-install:
- - source ./texlive/texlive_install.sh
-cache:
-  directories:
-    - /tmp/texlive
-    - $HOME/.texlive
-# Change working directory so including files will work
-before_script: cd $TRAVIS_BUILD_DIR/src/
+# Docs of the options: https://github.com/Strauman/travis-latexbuild/tree/master#configuration-options
+tex-config:
+- tex-scheme=small
+- push-type=none
+- build-pattern=src/rubiks-notes.tex
+#- latexmk-flags=-dvi -f
+# Index of packages: http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/archive/
+- packages=tikz, rubik
+
 script:
-- mkdir _build
-# Prefix command with travis_wait x so it times out after 3 mins, because when the LaTeX doesn't compile pdflatex just hangs instead of quitting.
-- travis_wait 3 pdflatex -output-directory _build -shell-escape ./rubiks-notes.tex
-# Compile twice to fix possible references
-- travis_wait 3 pdflatex -output-directory _build -shell-escape ./rubiks-notes.tex
+- docker pull strauman/travis-latexbuild:small # select small texlive scheme
+- docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:small # also here
