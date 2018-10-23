@@ -7,17 +7,17 @@
 
 \begin{document}
 
-    \begin{figure}
-        \centering
-        \RubikCubeSolved
-        \begin{tikzpicture}[scale=0.5]
-            \DrawRubikCubeRU
-        \end{tikzpicture}
-        \RubikRotation{\sixspot}
-        \begin{tikzpicture}[scale=0.5]
-            \DrawRubikCubeRU
-        \end{tikzpicture}
-        \caption{Rubik}
-    \end{figure}
+    \section{The First Layer}
+
+    \begin{minipage}{0.6\textwidth}
+        \subsection{The White Cross}
+        We first start with the white cross.
+        Note that the colours on the side of the cross should match the colours of the centrepieces.
+    \end{minipage}%
+    \hfill%
+    \RubikCubeGreyWY
+    \RubikFaceUp{X}{W}{X}{W}{W}{W}{X}{W}{X}
+    \RubikSliceTopR{X}{O}{X}{X}{G}{X}
+    \ShowCube{0.3\textwidth}{1}{\DrawRubikCubeRU}%
 
 \end{document}
