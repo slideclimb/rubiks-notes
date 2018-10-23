@@ -1,23 +1,92 @@
 \documentclass{article}
 
+\usepackage{a4wide}
 \usepackage{tikz}
 \usepackage{rubikcube, rubikrotation}
 
-\newcommand{\sixspot}{[sixspot],U,Dp,R,Lp,F,Bp,U,Dp}
+\usepackage{xparse}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\newtcolorbox{rubiksgoal}[1][]{
+enhanced,
+title=Goal,
+sidebyside,
+sidebyside align=top seam,
+righthand width=4cm,
+sharp corners,
+segmentation hidden,
+coltitle=black,
+boxsep=2mm,
+colbacktitle=black!30!white,
+colback=black!5!white,
+titlerule style={black!5!white},
+frame hidden,
+#1
+}
+
+% Use xparse to define a new environment because this allows the use of
+% parameters (#1) in the end part of the definition.
+% The optional argument defines how to draw the cube, the default is showing the
+% front, right, and up face.
+\NewDocumentEnvironment{goal}{O{\DrawRubikCubeRU}}{
+\begin{rubiksgoal}}{%
+    \tcblower%
+    \ShowCube{4cm}{1}{#1}
+\end{rubiksgoal}
+}
 
 \begin{document}
 
-    \section{The First Layer}
+    \section{The First Two Layers}
 
-    \begin{minipage}{0.6\textwidth}
-        \subsection{The White Cross}
-        We first start with the white cross.
-        Note that the colours on the side of the cross should match the colours of the centrepieces.
-    \end{minipage}%
-    \hfill%
-    \RubikCubeGreyWY
-    \RubikFaceUp{X}{W}{X}{W}{W}{W}{X}{W}{X}
-    \RubikSliceTopR{X}{O}{X}{X}{G}{X}
-    \ShowCube{0.3\textwidth}{1}{\DrawRubikCubeRU}%
+    \subsection{The White Cross}
+        \RubikCubeGreyWY
+        \RubikFaceUp{X}{W}{X}{W}{W}{W}{X}{W}{X}
+        \RubikSliceTopR{X}{O}{X}{X}{G}{X}
 
+        \begin{goal}
+            Solve the white cross.
+            Note that the colours on the side of the cross should match the colours of the centrepieces.
+        \end{goal}
+
+    \subsection{White Corners}
+        \RubikCubeGreyWY
+        \RubikFaceUp{W}{W}{W}{W}{W}{W}{W}{W}{W}
+        \RubikSliceTopR{O}{O}{O}{G}{G}{G}
+
+        \begin{goal}
+            Solve the white layer.
+        \end{goal}
+
+    \subsection{Middle Layer}
+        \RubikCubeGreyWY
+        \RubikFaceUp{W}{W}{W}{W}{W}{W}{W}{W}{W}
+        \RubikSliceTopR{O}{O}{O}{G}{G}{G}
+        \RubikSliceMiddleR{O}{O}{O}{G}{G}{G}
+
+        \begin{goal}
+        Solve the middle layer.
+        \end{goal}
+
+    \section{Last Layer}
+    \subsection{Yellow Cross}
+        \RubikCubeGreyAll
+        \RubikFaceUp XYX YYY XYX
+
+        \begin{goal}[\DrawRubikFaceUp]
+            Solve the yellow cross.
+            The edges of the yellow cubies on the other faces do not have to match the colour of that face.
+            We will fix this later.
+        \end{goal}
+
+    \subsection{Yellow Corners}
+        \RubikCubeGreyAll
+        \RubikFaceUp YYY YYY YYY
+
+        \begin{goal}[\DrawRubikFaceUp]
+            Solve the yellow corners.
+            These also do not have to match the colours of the other faces (yet).
+        \end{goal}
 \end{document}
