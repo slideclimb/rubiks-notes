@@ -10,8 +10,8 @@
     \subsection{The White Cross}
 
     \RubikCubeGreyWY
-    \RubikFaceUp{X}{W}{X}{W}{W}{W}{X}{W}{X}
-    \RubikSliceTopR{X}{O}{X}{X}{G}{X}
+    \RubikFaceUp{X}{W}{X} {W}{W}{W} {X}{W}{X}
+    \RubikSliceTopR{X}{O}{X} {X}{G}{X}
 
     \begin{goal}
         Solve the white cross.
@@ -22,8 +22,8 @@
     \subsection{White Corners}
 
     \RubikCubeGreyWY
-    \RubikFaceUp{W}{W}{W}{W}{W}{W}{W}{W}{W}
-    \RubikSliceTopR{O}{O}{O}{G}{G}{G}
+    \RubikFaceUp{W}{W}{W} {W}{W}{W} {W}{W}{W}
+    \RubikSliceTopR{O}{O}{O} {G}{G}{G}
 
     \begin{goal}
         Solve the white layer.
@@ -33,13 +33,31 @@
     \subsection{Middle Layer}
 
     \RubikCubeGreyWY
-    \RubikFaceUp{W}{W}{W}{W}{W}{W}{W}{W}{W}
-    \RubikSliceTopR{O}{O}{O}{G}{G}{G}
-    \RubikSliceMiddleR{O}{O}{O}{G}{G}{G}
+    \RubikFaceUp{W}{W}{W} {W}{W}{W} {W}{W}{W}
+    \RubikSliceTopR{O}{O}{O} {G}{G}{G}
+    \RubikSliceMiddleR{O}{O}{O} {G}{G}{G}
 
     \begin{goal}
         Solve the middle layer.
     \end{goal}
+    First turn the cube upside down, so the white face is on the bottom.
+    Look for one of the edge cubies of the middle layer that is hanging out on the top layer.
+    Turn the top layer so that the colour of the edge cubie is matching the colour of a centrecubie on one of the sides.
+    We are now ready to move it to its solved position.
+
+    \RubikCubeGreyWY
+    \RubikFaceUp XXX XXX XGX
+    \RubikFaceFront XOX XOX OOO
+    \RubikFaceRight XXX XGX GGG
+    \RubikFaceDown WWW WWW WWW
+    \ShowCube{4cm}{1}{\DrawRubikCubeRU%
+        \draw[->, thick] (1.5, 2.5) -- (2.5, 1.5);}
+    \quad$=$\quad%
+    \RubikRotation{U, R, Up, Rp}
+    \ShowCube{4cm}{1}{\DrawRubikCubeRU}%
+    \quad$+$\quad%
+    \RubikRotation{Up, Fp, U, F}
+    \ShowCube{4cm}{1}{\DrawRubikCubeRU}%
 
 
     \section{Last Layer}
