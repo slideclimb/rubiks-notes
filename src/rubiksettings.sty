@@ -59,19 +59,22 @@
 % Compute the width of the minipage based on the length of the sequence.
 % Counts the number of commas in the sequence, and adds 2. One for the last
 % item in the sequence, and one for the arrow.
+% Repeated commands, e.g. U2, will be printed as 'U, U' and thus need one extra unit of space.
 \newcommand\sequencelength[1]{\luaexec{
-    _ , count = string.gsub ( \luastring{#1} , "," , "," )
-    count = count + 2
+    _ , commands = string.gsub ( \luastring{#1} , "," , "," )
+    count = commands + 2
+    _ , twos = string.gsub (\luastring{#1} , "2", "2" )
+    count = count + twos
     tex.sprint("\\gdef\\miniwidth{"..count.. "cm}")
 }}
 
 % Print a sequence and an arrow.
 \newcommand\sequencearrow[1]{%
+    \RubikRotation{#1}  % Apply the sequence to the cube.
     \sequencelength{#1}  % Compute the width of the minipage.
     \begin{minipage}[t]{\dimexpr\miniwidth\relax}
         \centering
         \vspace*{2cm}
-        \quad\ShowSequence{\ }{\Rubik}{#1}{\ $\longrightarrow$ \quad}
+        \quad\ShowSequence{\ }{\Rubik}{\SequenceLong}{\ $\longrightarrow$ \quad}
     \end{minipage}
-    \RubikRotation{#1}  % Apply the sequence to the cube.
 }
