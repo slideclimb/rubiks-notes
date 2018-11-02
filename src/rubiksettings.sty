@@ -65,7 +65,8 @@
     count = commands + 2
     _ , twos = string.gsub (\luastring{#1} , "2", "2" )
     count = count + twos
-    tex.sprint("\\gdef\\miniwidth{"..count.. "cm}")
+    count = count * 25
+    tex.sprint("\\gdef\\miniwidth{"..count.."pt}")
 }}
 
 % Print a sequence and an arrow.
