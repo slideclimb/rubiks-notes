@@ -4,9 +4,14 @@
 \RequirePackage{rubikcube, rubikrotation}
 
 \RequirePackage{xparse}
+\RequirePackage{luacode}
 
 \RequirePackage{tcolorbox}
 \tcbuselibrary{skins}
+
+\RequirePackage{ragged2e}
+
+\setlength{\parindent}{0pt}
 
 \newtcolorbox{rubiksgoal}[1][]{
     enhanced,
@@ -34,4 +39,38 @@
     \tcblower%
     \ShowCube{4cm}{1}{#1}
     \end{rubiksgoal}
+}
+
+% Prints the current state of the cube with given text underneath it.
+% The
+\newcommand\textcube[1]{
+\begin{minipage}{4cm}%
+    \vspace*{\baselineskip}
+    \centering%
+    \begin{tikzpicture}
+        \DrawRubikCubeRU
+    \end{tikzpicture}
+    \justify
+    #1
+    \vspace*{\baselineskip}
+\end{minipage}%
+}
+
+% Compute the width of the minipage based on the length of the sequence.
+% Counts the number of commas in the sequence, and adds 2. One for the last
+% item in the sequence, and one for the arrow.
+\newcommand\sequencelength[1]{\luaexec{
+    _ , count = string.gsub ( \luastring{#1} , "," , "," )
+    count = count + 2
+    tex.sprint("\\gdef\\miniwidth{"..count.. "cm}")
+}}
+
+% Print a sequence and an arrow.
+\newcommand\sequencearrow[1]{%
+    \sequencelength{#1}  % Compute the width of the minipage.
+    \begin{minipage}[t]{\dimexpr\miniwidth\relax}
+        \centering
+        \quad\ShowSequence{\ }{\Rubik}{#1}{\ $\longrightarrow$ \quad}
+    \end{minipage}
+    \RubikRotation{#1}  % Apply the sequence to the cube.
 }
