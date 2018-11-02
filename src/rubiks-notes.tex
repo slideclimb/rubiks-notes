@@ -26,11 +26,7 @@
     \section{The First Two Layers}
 
     \subsection{The White Cross}
-
-    \RubikCubeGreyWY
-    \RubikFaceUp{X}{W}{X} {W}{W}{W} {X}{W}{X}
-    \RubikSliceTopR{X}{O}{X} {X}{G}{X}
-
+    \input{cube-setup/white-cross}
     \begin{goal}
         Solve the white cross.
         Note that the colours on the side of the cross should match the colours of the centrepieces.
@@ -38,23 +34,14 @@
 
 
     \subsection{White Corners}
-
-    \RubikCubeGreyWY
-    \RubikFaceUp{W}{W}{W} {W}{W}{W} {W}{W}{W}
-    \RubikSliceTopR{O}{O}{O} {G}{G}{G}
-
+    \input{cube-setup/white-face}
     \begin{goal}
-        Solve the white layer.
+        Solve the white face.
     \end{goal}
 
 
     \subsection{Middle Layer}
-
-    \RubikCubeGreyWY
-    \RubikFaceUp WWW WWW WWW
-    \RubikSliceTopR OOO GGG
-    \RubikSliceMiddleR OOO GGG
-
+    \input{cube-setup/white-middle}
     \begin{goal}
         Solve the middle layer.
     \end{goal}
@@ -63,11 +50,10 @@
     Look for one of the edge cubies of the middle layer that is hanging out on the top layer.
     Turn the top layer so that the colour of the edge cubie is matching the colour of a centre cubie on one of the sides.
 
+    \input{cube-setup/white-face}
     \RubikRotation{z2}
-    \RubikSliceBottomR OOO BBB
-    \RubikSliceMiddleR XOX XBX
-    \RubikSliceTopR XOX XXX
     \RubikFaceUp XXX XYX XBX
+    \RubikSliceTopR XOX XXX
 
     \textcube{We first want the blue orange corner cubie to be next to the blue orange edge cubie. We first turn the edge cubie away, so that we can move the corner cubie to the top.}
     \sequencearrow{U, R}
@@ -82,11 +68,10 @@
     Do this with all the edge cubies until the four of them are in the right place.
     Putting this all together we have the following sequence:
 
-    \RubikCubeGreyWY
-    \RubikSliceBottomR OOO BBB
-    \RubikSliceMiddleR XOX XBX
-    \RubikSliceTopR XOX XXX
+    \input{cube-setup/white-face}
+    \RubikRotation{z2}
     \RubikFaceUp XXX XYX XBX
+    \RubikSliceTopR XOX XXX
     \textcube{}
     \sequencearrow{U, R, Up, Rp, Up, Fp, U, F}
     \textcube{}
@@ -112,4 +97,5 @@
         Solve the yellow corners.
         These also do not have to match the colours of the other faces (yet).
     \end{goal}
+
 \end{document}
