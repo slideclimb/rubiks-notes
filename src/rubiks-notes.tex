@@ -7,7 +7,6 @@
 \setmainfont{Trebuchet MS}
 
 \begin{document}
-
     \section{The First Two Layers}
 
     \subsection{The White Cross}
@@ -36,9 +35,9 @@
     \subsection{Middle Layer}
 
     \RubikCubeGreyWY
-    \RubikFaceUp{W}{W}{W} {W}{W}{W} {W}{W}{W}
-    \RubikSliceTopR{O}{O}{O} {G}{G}{G}
-    \RubikSliceMiddleR{O}{O}{O} {G}{G}{G}
+    \RubikFaceUp WWW WWW WWW
+    \RubikSliceTopR OOO GGG
+    \RubikSliceMiddleR OOO GGG
 
     \begin{goal}
         Solve the middle layer.
@@ -48,15 +47,23 @@
     Look for one of the edge cubies of the middle layer that is hanging out on the top layer.
     Turn the top layer so that the colour of the edge cubie is matching the colour of a centre cubie on one of the sides.
 
-    \RubikCubeSolved
-    \textcube{I am some text.
-    Saying things so one can remember what to turn next.}
-    \sequencearrow{U, R, Rp}
-    \textcube{I am some text.}
-    \sequencearrow{L, F}
-    \textcube{HI}
-    \sequencearrow{U2}
-    \textcube{This is not a cube.}
+    \RubikRotation{z2}
+    \RubikSliceBottomR OOO BBB
+    \RubikSliceMiddleR XOX XBX
+    \RubikSliceTopR XOX XXX
+    \RubikFaceUp XXX XYX XBX
+
+    \textcube{We first want the blue orange corner cubie to be next to the blue orange edge cubie. We first turn the edge cubie away, so that we can move the corner cubie to the top.}
+    \sequencearrow{U, R}
+    \textcube{We can now turn the edge cubie back, and put the corner cubie correctly oriented next to it.}
+    \sequencearrow{Up, Rp}
+    \textcube{Finally, we can move these two cubies next to their orange neighbours.}
+    \sequencearrow{Up, Fp, U}
+    \textcube{And into place.}
+    \sequencearrow{F}
+    \textcube{}
+
+    Do this with all the edge cubies until the four of them are in the right place.
 
     \section{Last Layer}
 
