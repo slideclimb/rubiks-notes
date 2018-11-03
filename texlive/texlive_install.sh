@@ -16,10 +16,10 @@ if ! command -v texlua > /dev/null; then
   cd install-tl-20*
 
   # Find directory this file is in, to find the texlive.profile file.
-  BASEDIR=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+#  BASEDIR=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
   # Install a minimal system
-  ./install-tl --profile="$BASEDIR"/texlive.profile
+  ./install-tl --profile=./texlive.profile
 
   cd ..
 fi
