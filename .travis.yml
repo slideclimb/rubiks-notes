@@ -23,7 +23,7 @@ deploy:
   api_key:
     secure: fqZ62HsS3A+RKovk7zCh9mQ0zOSBnQekFMHB7+yxVIKG85nBX6hR7TauTEwNHD1jkd6HbqdgulLls6gpxxkNL9SgvBBLaByrSbp/zRajpmdBkqiIUQLjtibaAYiz+zvCLVu6PJeYPyz19/tgasWvR9Oz/wdQ/HnPBgfNBfCS1gKZA12Vj6IbU1cvLdC0AaOeLwblgWwbqS8lwHutV2MqY5uGjEZ8s1Nlz29v2vFPaaxL08ZnjGr2iNtaA4kAvTPWukHeCXnagHVE77yOdU1iFwG8Jzad/lrts9ao9u8mTlPLDVkmhSAC40CeFNJKWXje+Z0WkJAy24hPwiHXayTy7nlF2ypDgTWkvXZQcLciLW34RvC9ekcW/rGIHdW6U7F4lFzlCtFOdjH22eMTo+/HN7yDqsJCgoRNrP1cly14JepHGhwPl37T6Ir5Jk1vaHXiV6adB+tQoPJu8Vl/Md0nCeReXqSyc905RBa5O1s0O//I6MqV8NN9e27uQ/0LMezss6V2/Uxdk3ITeP8/Fi36LCGii6h9HecxIUN7rThuo1amEq6yx++n7z0DDpNULRPB5+4shlRedJYUairVx8LGAHK1RB0X06c38rf3r21eTKV8eg1Y+I7nKeu/JxAJx9SPXYghHCwwflrtNL+i+k4utzIH+uX8R1ujO4dn/Hd4M40=
   file:
-  - ./src/rubiks-notes.pdf
+  - ./rubiks-notes.pdf
   skip_cleanup: true
   on:
     tags: true
