@@ -13,6 +13,7 @@ src/*.log
 src/*.pdf
 src/*.synctex.gz
 src/*.dat
+src/*.toc
 
 # Minted generated files
 src/_minted-*/*
