@@ -19,7 +19,7 @@ if ! command -v texlua > /dev/null; then
 #  BASEDIR=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
   # Install a minimal system
-  ./install-tl --profile=./texlive.profile
+  ./install-tl --profile=../texlive.profile
 
   cd ..
 fi
