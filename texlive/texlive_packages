@@ -13,3 +13,4 @@ luatexbase
 ctablestack
 environ
 trimspaces
+etoolbox
