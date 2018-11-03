@@ -4,9 +4,7 @@ language: generic
 before_install:
 - sudo apt-get install python-pygments
 install:
-- cd ./texlive
-- source ./texlive_install.sh
-- cd ..
+- source ./texlive/texlive_install.sh
 cache:
   directories:
   - /tmp/texlive
