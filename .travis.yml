@@ -2,8 +2,8 @@ language: generic
 before_install:
 - sudo apt-get install python-pygments
 # Install font
-- mkdir -p "~/.fonts/truetype/TrebuchetMS"
-- cp ./src/fonts/trebuc.ttf "~/.fonts/truetype/TrebuchetMS"
+- mkdir -p "/usr/share/fonts/truetype/TrebuchetMS"
+- cp ./src/fonts/trebuc.ttf "/usr/share/fonts/truetype/TrebuchetMS"
 - fc-cache -f -v
 install:
 - source ./texlive/texlive_install.sh
