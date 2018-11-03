@@ -1,8 +1,10 @@
 language: generic
-
-# Dependency of the minted package
 before_install:
 - sudo apt-get install python-pygments
+# Install font
+- mkdir -p "~/.fonts/truetype/TrebuchetMS"
+- cp ./src/fonts/trebuc.ttf "~/.fonts/truetype/TrebuchetMS"
+- fc-cache -f -v
 install:
 - source ./texlive/texlive_install.sh
 cache:
@@ -16,4 +18,14 @@ script:
 # Prefix command with travis_wait x so it times out after 3 mins, because when the LaTeX doesn't compile pdflatex just hangs instead of quitting.
 - travis_wait 3 lualatex -output-directory _build -shell-escape ./rubiks-notes.tex
 # Compile twice to fix possible references
-- travis_wait 3 lualatex -output-directory _build -shell-escape ./rubiks-notes.tex
+- travis_wait 3 lualatex -output-directory
+deploy:
+  provider: releases
+  api_key:
+    secure: fqZ62HsS3A+RKovk7zCh9mQ0zOSBnQekFMHB7+yxVIKG85nBX6hR7TauTEwNHD1jkd6HbqdgulLls6gpxxkNL9SgvBBLaByrSbp/zRajpmdBkqiIUQLjtibaAYiz+zvCLVu6PJeYPyz19/tgasWvR9Oz/wdQ/HnPBgfNBfCS1gKZA12Vj6IbU1cvLdC0AaOeLwblgWwbqS8lwHutV2MqY5uGjEZ8s1Nlz29v2vFPaaxL08ZnjGr2iNtaA4kAvTPWukHeCXnagHVE77yOdU1iFwG8Jzad/lrts9ao9u8mTlPLDVkmhSAC40CeFNJKWXje+Z0WkJAy24hPwiHXayTy7nlF2ypDgTWkvXZQcLciLW34RvC9ekcW/rGIHdW6U7F4lFzlCtFOdjH22eMTo+/HN7yDqsJCgoRNrP1cly14JepHGhwPl37T6Ir5Jk1vaHXiV6adB+tQoPJu8Vl/Md0nCeReXqSyc905RBa5O1s0O//I6MqV8NN9e27uQ/0LMezss6V2/Uxdk3ITeP8/Fi36LCGii6h9HecxIUN7rThuo1amEq6yx++n7z0DDpNULRPB5+4shlRedJYUairVx8LGAHK1RB0X06c38rf3r21eTKV8eg1Y+I7nKeu/JxAJx9SPXYghHCwwflrtNL+i+k4utzIH+uX8R1ujO4dn/Hd4M40=
+  file:
+  - ./src/rubik-notes.pdf
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: master
