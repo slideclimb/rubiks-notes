@@ -14,6 +14,6 @@ before_script: cd $TRAVIS_BUILD_DIR/src/
 script:
 - mkdir _build
 # Prefix command with travis_wait x so it times out after 3 mins, because when the LaTeX doesn't compile pdflatex just hangs instead of quitting.
-- travis_wait 3 lualatex -output-directory _build -shell-escape ./test.tex
+- travis_wait 3 lualatex -output-directory _build -shell-escape ./rubiks-notes.tex
 # Compile twice to fix possible references
-- travis_wait 3 lualatex -output-directory _build -shell-escape ./test.tex
+- travis_wait 3 lualatex -output-directory _build -shell-escape ./rubiks-notes.tex
