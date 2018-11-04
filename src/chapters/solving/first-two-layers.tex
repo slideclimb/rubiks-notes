@@ -1,0 +1,55 @@
+\section{The First Two Layers}
+
+\subsection{The White Cross}
+\input{cube-setup/white-cross}
+\begin{goal}
+    Solve the white cross.
+    Note that the colours on the side of the cross should match the colours of the centrepieces.
+\end{goal}
+This can be done using your intuition.
+
+\subsection{White Corners}
+\input{cube-setup/white-face}
+\begin{goal}
+    Solve the white face.
+\end{goal}
+
+
+\subsection{Middle Layer}
+\input{cube-setup/white-middle}
+\begin{goal}
+    Solve the middle layer.
+\end{goal}
+
+First turn the cube upside down, so the white face is on the bottom.
+Look for one of the edge cubies of the middle layer that is hanging out on the top layer.
+Turn the top layer so that the colour of the edge cubie is matching the colour of a centre cubie on one of the sides.
+
+\input{cube-setup/white-face}
+\RubikRotation{z2}
+\RubikFaceUp XXX XYX XBX
+\RubikSliceTopR XOX XXX
+
+\textcube{We want the \cubie{fu} cubie next to the \cubie{frd} cubie. Move \cubie{fu}$\to$\cubie{lu}, then \cubie{frd}$\to$\cubie{urf}.}
+\sequencearrow{U, R}
+\textcube{Now put them next to each other in the top layer. \cubie{lu}$\to$\cubie{fu} (which will move \cubie{urf}$\to$\cubie{ubr}), move it back: \cubie{ubr}$\to$\cubie{fur}.}
+\sequencearrow{Up, Rp}\\
+\textcube{Move this pair to their correct position. First put them next to \cubie{fd}. \cubie{uf}$\to$\cubie{ur}, \cubie{fr}$\to$\cubie{fu}, \cubie{ur}$\to$\cubie{uf}.}
+\sequencearrow{Up, Fp, U}
+\textcube{And into place. \cubie{fu}$\to$\cubie{fr}.}
+\sequencearrow{F}\\
+\notextcube
+
+Putting this all together we have the following sequence:
+
+\input{cube-setup/white-face}
+\RubikRotation{z2}
+\RubikFaceUp XXX XYX XBX
+\RubikSliceTopR XOX XXX
+\notextcube
+\sequencearrow{U, R, Up, Rp, Up, Fp, U, F}
+\notextcube
+
+We can use the mirror sequence to move \cubie{fu}$\to$\cubie{fl}.
+Do one of these sequences with all the edge cubies until the four of them are in the right place.
+Note that we can also use this to get an edge cubie to the top layer so we can put it in its correct location using, again, this sequence.

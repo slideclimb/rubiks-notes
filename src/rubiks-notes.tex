@@ -1,101 +1,30 @@
-\documentclass{article}
+\documentclass{book}
 
-\usepackage{fontspec}
+\usepackage[no-math]{fontspec}
 \usepackage{fullpage}
 \usepackage{rubiksettings}
 
-\setmainfont{Trebuchet MS}
+\setmainfont[Ligatures=TeX]{Trebuchet MS}
+\usepackage[italic]{mathastext}
 
-\title{Remembering the Rubik's Cube}
+\title{Cubing Fun}
 \author{Abby Berkers}
 
 \begin{document}
     \maketitle
-    \RubikCubeSolved
-    \begin{minipage}{\textwidth}
-        \centering
-        \ShowCube{4cm}{1}{\DrawRubikCubeRU}
-    \end{minipage}
     \clearpage
 
     \tableofcontents
     \clearpage
 
-    \setcounter{section}{-1}
-    \section{How to Use This Document}
-    \section{The First Two Layers}
+    \input{chapters/introduction}
 
-    \subsection{The White Cross}
-    \input{cube-setup/white-cross}
-    \begin{goal}
-        Solve the white cross.
-        Note that the colours on the side of the cross should match the colours of the centrepieces.
-    \end{goal}
+    \input{chapters/solving/solving-cube}
 
+    \chapter{More Fun}
+    \input{chapters/fun/two-faces}
 
-    \subsection{White Corners}
-    \input{cube-setup/white-face}
-    \begin{goal}
-        Solve the white face.
-    \end{goal}
-
-
-    \subsection{Middle Layer}
-    \input{cube-setup/white-middle}
-    \begin{goal}
-        Solve the middle layer.
-    \end{goal}
-
-    First turn the cube upside down, so the white face is on the bottom.
-    Look for one of the edge cubies of the middle layer that is hanging out on the top layer.
-    Turn the top layer so that the colour of the edge cubie is matching the colour of a centre cubie on one of the sides.
-
-    \input{cube-setup/white-face}
-    \RubikRotation{z2}
-    \RubikFaceUp XXX XYX XBX
-    \RubikSliceTopR XOX XXX
-
-    \textcube{We first want the blue orange corner cubie to be next to the blue orange edge cubie. We first turn the edge cubie away, so that we can move the corner cubie to the top.}
-    \sequencearrow{U, R}
-    \textcube{We can now turn the edge cubie back, and put the corner cubie correctly oriented next to it.}
-    \sequencearrow{Up, Rp}\\
-    \textcube{Finally, we can move these two cubies next to their orange neighbours.}
-    \sequencearrow{Up, Fp, U}
-    \textcube{And into place.}
-    \sequencearrow{F}\\
-    \textcube{}
-
-    Do this with all the edge cubies until the four of them are in the right place.
-    Putting this all together we have the following sequence:
-
-    \input{cube-setup/white-face}
-    \RubikRotation{z2}
-    \RubikFaceUp XXX XYX XBX
-    \RubikSliceTopR XOX XXX
-    \textcube{}
-    \sequencearrow{U, R, Up, Rp, Up, Fp, U, F}
-    \textcube{}
-
-    \section{Last Layer}
-
-    \subsection{Yellow Cross}
-
-    \RubikCubeGreyAll
-    \RubikFaceUp XYX YYY XYX
-
-    \begin{goal}[\DrawRubikFaceUp]
-        Solve the yellow cross.
-        The edges of the yellow cubies on the other faces do not have to match the colour of that face.
-        We will fix this later.
-    \end{goal}
-
-    \subsection{Yellow Corners}
-    \RubikCubeGreyAll
-    \RubikFaceUp YYY YYY YYY
-
-    \begin{goal}[\DrawRubikFaceUp]
-        Solve the yellow corners.
-        These also do not have to match the colours of the other faces (yet).
-    \end{goal}
+    \bibliographystyle{ieeetr}
+    \bibliography{rubiks-notes}
 
 \end{document}
