@@ -14,6 +14,21 @@ This can be done using your intuition.
     Solve the white face.
 \end{goal}
 
+Assume we solve the cubie with home location $FUR$ (rotate your cube if this is already solved).
+If this cubie is not in the bottom layer (thus in the top layer), we first have to move it to the bottom layer.
+Do this by turning the cube so that our cubie is in the $FUR$ location, and doing the sequence \textRubik{R, Dp, Rp}.
+Then $fur \to dfr \to dlf$, and we have placed a different cubie in the $FUR$ location.
+
+Now --- our cubie is on the bottom layer --- turn your cube so that the to be solved cubie has as its home location $FUR$.
+Turn the bottom layer so that this cubie is in the $FRD$ location (independent of orientation.)
+In our example the cubie will have the $dfr$ orientation.
+
+\input{cube-setup/white-cross.tex}
+\RubikSliceBottomR XXW GXX
+\RubikFaceDown XXX XXX XXO
+
+\textcube{hello}
+
 
 \subsection{Middle Layer}
 \input{cube-setup/white-middle}
