@@ -14,20 +14,37 @@ This can be done using your intuition.
     Solve the white face.
 \end{goal}
 
-Assume we solve the cubie with home location $FUR$ (rotate your cube if this is already solved).
-If this cubie is not in the bottom layer (thus in the top layer), we first have to move it to the bottom layer.
-Do this by turning the cube so that our cubie is in the $FUR$ location, and doing the sequence \textRubik{R, Dp, Rp}.
+Assume we solve the cubie with home location $FUR$.
+If this cubie is not in the bottom layer, and thus in the top layer, we first have to move it to the bottom layer.
+Do this by turning the cube so that our cubie is the $fur$ cubie, and doing the sequence \textRubik R, \textRubik{Dp}, \textRubik{Rp}.
 Then $fur \to dfr \to dlf$, and we have placed a different cubie in the $FUR$ location.
 
 Now --- our cubie is on the bottom layer --- turn your cube so that the to be solved cubie has as its home location $FUR$.
 Turn the bottom layer so that this cubie is in the $FRD$ location (independent of orientation.)
-In our example the cubie will have the $dfr$ orientation.
+There are three possible orientations for this cubie.
 
+\subsubsection{$drf$ orientation}
+Note that the $frd$ orientation is the mirror of this orientation.
 \input{cube-setup/white-cross.tex}
 \RubikSliceBottomR XXW GXX
-\RubikFaceDown XXX XXX XXO
+\RubikFaceDown XXO XXX XXX
 
-\textcube{hello}
+\textcube{Move $dfr \to dlf$ and $ru \to rf$, to put them next to each other and into place.}
+\sequencearrow{Dp, Rp}
+\textcube{$dlf \to dfr \to fur$.}
+\sequencearrow{D, R}
+\notextcube
+
+\subsubsection{$rdf$ orientation}
+\input{cube-setup/white-cross.tex}
+\RubikSliceBottomR XXG OXX
+\RubikFaceDown XXW XXX XXX
+
+\textcube{Rotate the corner cubie: $rdf \to rbd \to frd$}
+\sequencearrow{Rp, Dp}
+\textcube{$frd$ cubie is in the wrong orientation, move the edge up without the corner cubie: $frd \to lfd$, $rf \to ru$, $lfd \to frd$.}
+\sequencearrow{Dp, R, D}
+\textcube{This is the mirror of the $drf$ orientation.}
 
 
 \subsection{Middle Layer}
@@ -48,11 +65,11 @@ Turn the top layer so that the colour of the edge cubie is matching the colour o
 \textcube{We want the \cubie{fu} cubie next to the \cubie{frd} cubie. Move \cubie{fu}$\to$\cubie{lu}, then \cubie{frd}$\to$\cubie{urf}.}
 \sequencearrow{U, R}
 \textcube{Now put them next to each other in the top layer. \cubie{lu}$\to$\cubie{fu} (which will move \cubie{urf}$\to$\cubie{ubr}), move it back: \cubie{ubr}$\to$\cubie{fur}.}
-\sequencearrow{Up, Rp}\\
+\sequencearrow{Up, Rp}
 \textcube{Move this pair to their correct position. First put them next to \cubie{fd}. \cubie{uf}$\to$\cubie{ur}, \cubie{fr}$\to$\cubie{fu}, \cubie{ur}$\to$\cubie{uf}.}
 \sequencearrow{Up, Fp, U}
 \textcube{And into place. \cubie{fu}$\to$\cubie{fr}.}
-\sequencearrow{F}\\
+\sequencearrow{F}
 \notextcube
 
 Putting this all together we have the following sequence:

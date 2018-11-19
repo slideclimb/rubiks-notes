@@ -50,10 +50,10 @@
 % Prints the current state of the cube with given text underneath it.
 % The
 \newcommand\textcube[1]{
-\begin{minipage}[t]{4cm}%
+\begin{minipage}[t]{3cm}%
     \vspace*{\baselineskip}
     \centering%
-    \begin{tikzpicture}
+    \begin{tikzpicture}[scale=0.75]
         \DrawRubikCubeRU
     \end{tikzpicture}
     \justify
