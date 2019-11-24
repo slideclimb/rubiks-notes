@@ -3,9 +3,18 @@
 \usepackage[no-math]{fontspec}
 \usepackage{fullpage}
 \usepackage{rubiksettings}
+\usepackage{biblatex}
 
-\setmainfont[Ligatures=TeX]{Trebuchet MS}
+\setmainfont[
+    Path=fonts/,
+    Ligatures=TeX,
+    BoldFont = trebucbd,
+    ItalicFont = trebucit,
+    BoldItalicFont = trebucbi
+]{trebuc}
 \usepackage[italic]{mathastext}
+
+\addbibresource{rubiks-notes.bib}
 
 \title{Cubing Fun}
 \author{Abby Berkers}
@@ -24,7 +33,6 @@
     \chapter{Sub Groups}
     \input{chapters/fun/two-faces}
 
-    \bibliographystyle{ieeetr}
-    \bibliography{rubiks-notes}
+    \printbibliography
 
 \end{document}
